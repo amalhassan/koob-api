@@ -1,6 +1,10 @@
 const express = require('express');
 const userRouter = express.Router();
-const {postArticle, getArticles, getArticle, deleteArticle, postNote, getNotes, getNote, editNote, deleteNote} = require('../controllers/userController.js');
+const {getUsers, getUser, postArticle, getArticles, getArticle, deleteArticle, postNote, getNotes, getNote, editNote, deleteNote} = require('../controllers/userController.js');
+// route to get all users
+userRouter.route('/').get(getUsers);
+// route to get specific user
+userRouter.route('/user/:userId').get(getUser);
 // route to post article to read later and get all articles
 userRouter.route('/user/:userId/articles').get(getArticles).post(postArticle);
 // route  to get specific article and delete article

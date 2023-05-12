@@ -9,6 +9,19 @@ const user = {
 };
 // const newUser = new User(user)
 // const saveUser = newUser.save();
+const getUsers = async(req, res) => {
+    const users = await User.find();
+    res.status(200).json(users)
+}
+const getUser = async(req, res) => {
+    const id = req.params.id;
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(400);
+        throw new Error('User not found');
+    }
+    const user = await User.findById(id);
+    res.status(200).json(user)
+}
 const postArticle = async(req, res) => {
     const userId = req.params.userId;
     const user = await User.findById(userId);
@@ -120,5 +133,5 @@ const deleteNote = async(req, res) => {
     return res.status(200).json(updated.notes);
 }
 module.exports = {
-    postArticle, getArticles, getArticle, deleteArticle, postNote, getNotes, getNote, editNote, deleteNote
+    getUsers, getUser, postArticle, getArticles, getArticle, deleteArticle, postNote, getNotes, getNote, editNote, deleteNote
 }

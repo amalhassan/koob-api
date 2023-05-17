@@ -2,7 +2,7 @@
 
 ## Description
 
-Koob.io is a news feed bringing together the latest news from around the world for your convenience. The articles come from multiple sources, such as New York Post, BBC News, Mashable, The Guardian, TechCrunch and more! The app gives you the space to enjoy your daily reads, morning or evening. Each article has a summary feature readers can click to see if they are interested in reading the full article. Readers can also save an article by choosing to read later and add notes to articles on topics they’re researching.
+Koob.io brings together the latest news from around the world for your convenience. The articles come from multiple sources, such as New York Post, BBC News, Mashable, The Guardian, TechCrunch and more! The app gives you the space to enjoy your daily reads, morning or evening. Readers can bookmark and add notes to articles on topics they’re researching.
 
 ## Developer installation instructions
 
@@ -12,7 +12,7 @@ Please refer to link provided to access environment variables to be placed withi
 
 ### `npm i`
 
-Install all dependencies for necessary for the project
+Installs all dependencies necessary for the project
 
 ### `npm run server`
 

@@ -29,7 +29,19 @@ const userSchema = mongoose.Schema({
             },
             article_url: {
                 type: String,
-            }, 
+            },
+            publisher: {
+                type: String,
+            },
+            img_url: {
+                type: String,
+            },
+            date: {
+                type: String,
+            },
+            summary: {
+                type: String,
+            } 
         }
     ],
     articles: [

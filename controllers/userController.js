@@ -14,7 +14,7 @@ const getUsers = async(req, res) => {
     res.status(200).json(users)
 }
 const getUser = async(req, res) => {
-    const id = req.params.id;
+    const id = req.params.userId;
     if(!mongoose.Types.ObjectId.isValid(id)) {
         res.status(400);
         throw new Error('User not found');
@@ -77,13 +77,19 @@ const postNote = async(req, res) => {
         throw new Error ('please add note');
     }
     const user = await User.findById(userId);
-    user.notes.push({
+    const result = {
         note: req.body.note,
         article_title: req.body.article_title,
-        article_url: req.body.article_url
-    });
-    const updated = await user.save();
-    res.status(201).json(updated.notes);
+        article_url: req.body.article_url,
+        publisher: req.body.publisher,
+        img_url: req.body.img_url,
+        date: req.body.date,
+        summary: req.body.summary,
+        _id: new mongoose.Types.ObjectId()
+    }
+    user.notes.push(result);
+    await user.save();
+    res.status(201).json(result);
 }
 const getNotes = async(req, res) => {
     const userId = req.params.userId;
